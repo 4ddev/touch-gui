@@ -1,0 +1,25 @@
+/**
+ * @copyright: Kevin Heim
+ * @author: Kevin Heim
+ Copyright 2018
+
+ Any copy or distribution is under restriction
+ of its owner interests.
+
+ DO NOT COPY - CHANGE - OR DISTRIBUTE
+ OR USE THIS SOFTWARE - CODE ELSEWHERE WITHOUT
+ PERMISSION OF THE AUTHOR
+ ****/
+.main-color{
+    background: #2b2f35;
+}
+
+
+.control-bar-color{
+    background-color: #efefef;
+    border-bottom: 1px solid #fefefe;
+}
+.listContainer{
+    background-color: rgba(64, 45, 45, 0.2196078431372549);
+
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>WebSocket Test</title>
+<script src="socket.js"></script>
+
+<script language="javascript" type="text/javascript">
+
+
+
+var worker = new Worker('socket.js');
+
+
+worker.postMessage('Hello World'); // Send data to our worker.
+
+</script>
+
+<h2>WebWorker Test</h2>
+
+<div id="output"></div>

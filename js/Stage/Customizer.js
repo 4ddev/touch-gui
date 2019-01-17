@@ -1,0 +1,6 @@
+class Customizer{
+    constructor( paneObject ){
+        
+    }
+    
+}

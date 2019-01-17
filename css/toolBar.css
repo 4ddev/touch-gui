@@ -1,0 +1,123 @@
+/**
+ * @copyright: Kevin Heim
+ * @author: Kevin Heim
+ Copyright 2018
+
+ Any copy or distribution is under restriction
+ of its owner interests.
+
+ DO NOT COPY - CHANGE - OR DISTRIBUTE
+ OR USE THIS SOFTWARE - CODE ELSEWHERE WITHOUT
+ PERMISSION OF THE AUTHOR
+ ****/
+.titleContainer{
+    color: #f9f9f9;
+}
+.titleToolbar{
+    margin: 10px;
+ 
+    margin-left: 8px;
+}
+.no-pad{
+    padding-right: 0 !important;
+    padding-left:0 !important;
+    padding-top:0 !important;
+    padding-bottom:0 !important;
+}
+.navbar{
+    min-height: unset !important;
+}
+.navbar-nav{
+    display:inline-block !important;
+}
+.toolBar{
+    z-index: 200;
+    position: absolute;
+    right: 0;
+    min-width: 20%;
+    max-width: 20%;
+    height: 100vh;
+    background-color: #ececec;
+    overflow-y: auto;
+    border-left: 5px solid #ececec;
+    animation: fadeIn 1s normal forwards ease-in-out;
+    overflow-x: hidden;
+}
+
+.listElementToolbar{
+    height: 40px;
+    padding: 14px 10px;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    margin-left: 1px;
+    font-size: 0.75em;
+    border-bottom: 2px solid #ffffffff;
+    cursor:pointer;
+    float:left;
+}
+.listElementToolbar:first-child{
+    margin-left: 0;
+}
+.listElementToolbar:hover{
+    background-color: #efefef;
+    border-bottom:2px solid #346eb9;
+}
+
+.toolBarContainer{
+    animation: fadeIn 1s normal forwards ease-in-out;
+    padding: 5px;
+    min-height: 50px;
+    background: #fff;
+    margin-top: 3px;
+}
+
+.toolBarContainer:first-child{
+    margin-top: 0;
+}
+
+.toolBarContainer > h3 {
+    line-height: 20px;
+    font-size: 15px;
+    margin: 3px;
+}
+.bottom-custom{
+    margin-bottom: 1px !important;
+}
+
+.rowToolBar{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.rowToolBar:first-child{
+    margin-top:0;
+}
+.active{
+    border-bottom: 2px solid #346eb9;;
+    background-color: #efefef !important;
+    cursor: not-allowed;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1, 1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+.toolBarBottom{
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    background: #ececec;
+    z-index:2;
+}
+
+

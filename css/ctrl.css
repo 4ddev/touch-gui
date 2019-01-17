@@ -1,0 +1,175 @@
+/**
+ * @copyright: Kevin Heim
+ * @author: Kevin Heim
+ Copyright 2018
+
+ Any copy or distribution is under restriction
+ of its owner interests.
+
+ DO NOT COPY - CHANGE - OR DISTRIBUTE
+ OR USE THIS SOFTWARE - CODE ELSEWHERE WITHOUT
+ PERMISSION OF THE AUTHOR
+ ****/
+.ctrl-circle {
+    border-radius: 50%;
+    width: 30%;
+    height: 30%;
+ 
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    margin: -15px;
+    z-index: 101;
+    transform-origin: 50%;
+ }
+.ctrlRect {
+    bottom: 0px;
+    width: auto;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    /* top: 50%; */
+    right: 0px;
+    margin: -15px;
+    z-index: 101;
+ }
+ .ctrlRectElement{
+	 font-family: 'Glyphicons Halflings';
+    content: "\e014";
+	    line-height: 30px;
+		font-size: 10px;
+		text-align: center;
+		position: relative;
+		display: inline;
+ 
+ }
+.ctrl-circle::after{
+font-family: 'Glyphicons Halflings';
+    content: "\e014";
+    font-size: 0.5em;
+    line-height: 30px;
+ 
+    font-size: 10px;
+ 
+    display: block;
+    position: absolute;
+    left: -25%;
+    top: 50%;
+    margin-left: 55.5%;
+    margin-top: -52.5%;
+}
+
+.ctrlFunctions{
+	display: none;
+	    top: 50%;
+    left: 50%;
+	position:absolute;
+
+}
+
+@keyframes rota0 {
+    from {
+        opacity: 0;
+        transform: rotate(0deg) ;
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(100deg)
+    }
+}
+@keyframes rota1 {
+    from {
+        opacity: 0;
+        transform: rotate(-50deg);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(50deg);
+    }
+}
+@keyframes rota2 {
+    from {
+        opacity: 0;
+        transform: rotate(-50deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(25deg) translate(100px)
+    }
+}
+@keyframes rota3 {
+    from {
+        opacity: 0;
+        transform: rotate(-75deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(0deg) translate(100px)
+    }
+}
+@keyframes rota4 {
+    from {
+        opacity: 0;
+        transform: rotate(-100deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(-25deg) translate(100px);
+    }
+}
+@keyframes rota5 {
+    from {
+        opacity: 0;
+        transform: rotate(-125deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(-50deg) translate(100px)
+    }
+}
+@keyframes rota6 {
+    from {
+        opacity: 0;
+        transform: rotate(-150deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(-75deg) translate(100px)
+    }
+}
+@keyframes rota7{
+    from {
+        opacity: 0;
+        transform: rotate(-175deg) translate(100px);
+    }
+    50% {
+        opacity: 1;
+        
+    }
+    to {
+        transform: rotate(-100deg) translate(100px)
+    }
+}

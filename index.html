@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Lightweight Modelling</title>
+	<link rel="stylesheet" href="css/color.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<!-- CSS Hammer DrawBox needed! -->
+	<link rel="stylesheet" href="css/shapecontainer.css"/>
+	<link rel="stylesheet" href="css/print-sizes.css" type="text/css"/>
+	<link rel="stylesheet" href="css/ctrl.css" type="text/css"/>
+	<link rel="stylesheet" href="css/drawBoxObjects/objects.css" type="text/css">
+	<link rel="stylesheet" href="css/toolBar.css" type="text/css">
+	<link rel="stylesheet" href="css/drawbox.css" type="text/css">
+	<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+
+</head>
+<body class="grid" unselectable="on" onselectstart="return false;">
+	  <!-- The Header Control Elements -->
+	  <div class="controlBoxWrapper control-bar-color" >
+		<div id="control" unselectable="on" onselectstart="return false;">
+			<button id="add" class="btn btn-modeller" onclick="add(document.getElementById(document.getElementById('selectedShape').value).cloneNode(true),true,ButtonElement.ctrlElement())">addShape</button>
+			<button id="startSelect" class="btn btn-modeller" onclick="startSelect()">startSelect</button>
+			<button id="export" class="btn btn-modeller" onclick="exportData()">export</button>
+			<button id="startSelect2" class="btn btn-modeller" onclick="undo()">undo</button>
+		</div>
+	   </div>
+	
+	<!-- The DrawBox Grid Notation -->
+	<div id="drawBoxWrapper">
+		<!-- The X Axis -->
+		<svg id="hCord" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position: absolute">
+			<defs>
+				<pattern id="smallGridH" width="10" height="10" patternUnits="userSpaceOnUse">
+				<path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5"/>
+				</pattern>
+				<pattern id="gridH" width="100" height="100" patternUnits="userSpaceOnUse">
+				<rect width="100" height="100" fill="url(#smallGridH)"/>
+				<path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1"/>
+				</pattern>
+			</defs> 
+			<rect width="100%" height="7" fill="url(#gridH)" />
+		</svg>
+		<!-- The Y Axis -->
+		<svg id="vCord" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position: absolute">
+			<defs>
+				<pattern id="smallGridV" width="10" height="10" patternUnits="userSpaceOnUse">
+				<path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5"/>
+				</pattern>
+				<pattern id="gridV" width="100" height="100" patternUnits="userSpaceOnUse">
+				<rect width="100" height="100" fill="url(#smallGridV)"/>
+				<path d="M 100 0 L 0 0 0 100" fill="none" stroke="gray" stroke-width="1"/>
+				</pattern>
+			</defs> 
+			<rect width="7" height="100%" fill="url(#gridV)" />
+		</svg>
+
+		<!-- The DrawBox-->
+		<svg id="drawBox" size="A4" layout="landscape" xmlns="http://www.w3.org/2000/svg" version="1.1" id="shapeContainerElement15" width="800" height="600"></svg>
+		<!-- ToolBar Bottom -->
+		<div class="toolBarBottom">
+			<div class="row rowToolBar">
+				<ul class="tabs">
+					<li class="tabElement"><input type="text" name="fname" style="
+						padding: 0;
+						margin: 0;
+						width: 100%;
+						height: 100%;
+						border: none;
+						background: none;
+						outline: none;
+						cursor: pointer;
+					" value="Dokument"></li>
+					<li class="addPane">+</li>
+				</ul>
+				<div class="row rowToolBar scalePane">
+					<div class="col-md-2 scaleMinus">-</div>
+					<div class="col-md-8 sliderScale">
+						<div id="scalePane" class="scalePointer">
+						</div>
+					</div>
+					<div class="col-md-2 scalePlus">+</div>
+				</div>
+			</div>
+		</div>
+
+
+	<!-- id=toolBar id=titleToolBar class listElementToolbar -->
+	<!--  ToolBar Components -->
+	<div id="toolBar" class="toolBar">
+			<div class="row rowToolBar titleContainer main-color">
+				<h3 id="titleToolBar" class="titleToolbar">Preferences</h3>
+			</div>
+			<div class="navbar navbar-default subnav bottom-custom no-pad">
+ 
+				<ul class="nav navbar-nav">
+					<li class="listElementToolbar">Layout</li>
+				</ul>
+ 
+			</div>
+		</div>
+	
+	
+		<!-- An Toolbar Container for other child nodes for example input fields etc. -->
+		<div id="toolBarElementContainer" class="toolBarContainer d-none">
+			<h3 id="text-container">Style Attributes</h3>
+			<hr />
+		</div>
+	
+	
+		<div id="textfield" class="row form-group rowToolBar d-none">
+			<div class="col-md-6">
+				<span class="attributeName">
+					<label class="label-for-textfield" for="usr">Width:</label>
+				</span>
+			</div>
+			<div class="col-md-6">
+				<input type="text" class="form-control" id="usr" placeholder="">
+			</div>
+		</div>
+	
+		<div id="selectBox" class="row rowToolBar d-none">
+			<div class="col-md-6">
+				<span class="attributeName">
+					<label for="sel1">Select Template:</label>
+				</span>
+			</div>
+			<div class="col-md-6">
+				<select class="form-control" id="sel1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+				</select>
+			</div>
+		</div>
+		<!-- End ToolBar Components-->
+	
+	</div>
+
+
+
+
+	<!-- Shape Container Demo -->
+	<div id="shapeContainer" class="shape-container-color">
+			<div class="row rowToolBar">
+				<ul id="listContainer" class="listContainer">
+					<li class="shapesElement" style="display:none">
+						<div class=""></div>
+					</li>
+					<li class="shapesElement" style="display: none">
+						<div id="square" class=""></div>
+					</li>
+ 
+				</ul>
+			</div>
+	</div>
+	<!-- /ToolBarComponents -->
+	<div id="companyMark"> <img src="" alt="watermark" height="" width="100%"></div>
+	
+	
+	   <!-- Hammer JS -->
+	   <script src="js/libarys/hammer.js"></script>
+	   <!-- DrawBox -->
+	   <script src="js/Utility/map.js"></script>
+	   <script src="js/Utility/ToolsDrawBox.js"></script>
+   
+	   <script src="js/Scheduler/EventQueue.js"></script>
+	   <script src="js/exceptions/NotInitializedException.js"></script>
+	   
+	   <script src="js/Storage/StorageController.js"></script>
+	   
+	   <script src="js/Utility/Selector.js"></script>
+	   <script src="js/Utility/dropping.js"></script>  <!-- TODO DROPPING ANIMATION AND REORGANIZER-->
+	   <script src="js/Utility/SVGLib.js"></script>
+   
+	   <script src="js/ToolBar/ToolBarElement.js"></script>
+	   <script src="js/ToolBar/ToolBarPages.js"></script>
+	   <script src="js/ToolBar/ToolBar.js"></script>
+   
+	   <!-- Make Recognizer available by Stage Objects -->
+	   <script src="js/Stage/Recognizer/Move.js"></script>
+	   <script src="js/Stage/Recognizer/Pinch.js"></script>
+
+	   <script src="js/Stage/Configuration/PaneObjectEvents/PaneObjectEvents.js"></script>
+       <!-- Import Buttons -->
+	   <script src="js/Stage/Configuration/Button/ButtonElement.js"></script>
+	   <script src="js/Stage/Configuration/Button/ButtonGroup.js"></script>
+
+	   <!-- Should be inserted after Button and Recognizer's -->
+	   <script src="js/Stage/Configuration/ElementConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/DotConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/ScalePointerConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/PaneObjectConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/GroupObjectConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/ShapeObjectConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/ShapePaneConfiguration.js"></script>
+	   <script src="js/Stage/Configuration/StageConfiguration.js"></script>
+
+
+	   <!-- Import the Base Objects off a Pane any Object will use a reference to this Objects -->
+	   <script src="js/Stage/PaneParentObject.js"></script>
+	   <script src="js/Stage/PaneObject.js"></script>
+	   
+	   <!-- Import all other Stage Objects -->
+	   <script src="js/Stage/ScaleArea.js"></script>
+	   <script src="js/Stage/Resize/ResizeElement.js"></script>
+	   <script src="js/Stage/Resize/ResizeParent.js"></script>
+	   <script src="js/Stage/ButtonContainer.js"></script>
+
+
+	   <script src="js/Stage/Group.js"></script>
+	   
+	   <script src="js/Stage/Pane.js"></script>
+	   <script src="js/Stage/Stage.js"></script>
+	   <script src="js/Stage/Customizer.js"></script>
+	   <script src="js/Stage/StageTab.js"></script>
+	   <script src="js/Stage/ConnectionVector.js"></script>
+	   <script src="js/Stage/Coordinates.js"></script>
+		
+	   <script src="js/ShapeComponents/ShapeContainer.js"></script>
+	   <script src="js/Utility/hammerProExport.js"></script>
+	   
+	   <!-- load application interface last! -->
+	   <script src="js/drawBoxApplication.js"></script>
+	   <script src="js/Tests/Memory.js"></script>
+	   
+	   <!-- include jquery here, if necessary -->
+	   <script src="js/libarys/jquery.min.js" type="text/javascript"></script>
+
+   
+	   <!-- Bootstrap -->
+	   <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.css">
+	   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+	   <script src="bootstrap/js/bootstrap.js"></script>
+		   
+
+
+</body>
+
+</html>

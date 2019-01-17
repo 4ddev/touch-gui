@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchDemo</title>
+    <!-- Hammer JS -->
+    <script src="js/hammer.js"></script>
+    <!-- DrawBox -->
+    <script src="js/ctrlFunction.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/ObjectControlPanel.js"></script>
+    <script src="js/PaneControlPanel.js"></script>
+
+    <script src="js/dropping.js"></script>
+    <script src="js/Resizer.js"></script>
+    <script src="js/PaneObject.js"></script>
+    <script src="js/Group.js"></script>
+    <script src="js/hammerBox.js"></script>
+    <script src="js/EventQueue.js"></script>
+
+    <script src="js/Pane.js"></script>
+    <script src="js/SelectorPro.js"></script>
+    <script src="js/hammerProExport.js"></script>
+    <script src="js/ButtonElement.js"></script>
+    <script src="js/ButtonGroup.js"></script>
+    <script src="js/ToolBar/ToolBarElement.js"></script>
+    <script src="js/ToolBar/ToolBar.js"></script>
+    <!-- load application interface last! -->
+    <script src="js/drawBoxApplication.js"></script>
+    <link rel="stylesheet" href="menu.css">
+    <!-- CSS Hammer DrawBox needed! -->
+    <link rel="stylesheet" href="../../css/print-sizes.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/ctrl.css" type="text/css"/>
+    <link rel="stylesheet" href="../../css/drawBoxObjects/objects.css" type="text/css">
+    <link rel="stylesheet" href="../../css/toolBar.css" type="text/css">
+    <link rel="stylesheet" href="../../css/drawbox.css" type="text/css">
+    <link rel="stylesheet" href="../../css/print.css" type="text/css" media="print" />
+
+    <!-- CSS Hammer DrawBox / -->
+
+    <!-- include jquery here if necessary -->
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="templates" class="">
+    <div id="toolBarContainer">
+        <div class="toolBar">
+            <div class="row rowToolBar titleContainer" style="">
+                <h3 id="headText" class="titleToolbar">Preferences</h3>
+            </div>
+            <div class="navbar navbar-default subnav bottom-custom">
+                <div class="container-fluid no-pad">
+                    <ul class="nav navbar-nav">
+                        <li class="listElementToolbar active">Layout</li>
+                        <li id="listElement" class="listElementToolbar">Data</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="toolBarContainer">
+                <h3>Style Attributes</h3>
+                <hr />
+                <div class="row form-group rowToolBar">
+
+                        <div class="col-md-6">
+                            <span class="attributeName">
+                                <label for="usr">Width:</label>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="usr" placeholder="">
+                        </div>
+
+                </div>
+                <div class="row form-group rowToolBar">
+
+                    <div class="col-md-6">
+                            <span class="attributeName">
+                                <label for="height">Height:</label>
+                            </span>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="height" placeholder="">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="toolBarContainer">
+                <h3>Style Attributes</h3>
+                <hr />
+
+                <div class="row rowToolBar">
+                    <div class="col-md-6">
+                        <span class="attributeName">
+                    <label for="sel1">Select Template:</label>
+                </span>
+                    </div>
+                    <div class="col-md-6">
+
+
+                    <select class="form-control" id="sel1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+/**
+ * @copyright: Kevin Heim
+ * @author: Kevin Heim
+ Copyright 2018
+
+ Any copy or distribution is under restriction
+ of its owner interests.
+
+ DO NOT COPY - CHANGE - OR DISTRIBUTE
+ OR USE THIS SOFTWARE - CODE ELSEWHERE WITHOUT
+ PERMISSION OF THE AUTHOR
+ ****/
+#control,.controlBoxWrapper{
+	height: 40px;
+	line-height: 40px;
+}
+.controlBoxWrapper{
+	width: 100vw;
+}
+#control{
+    width: 80%;
+    max-width: calc( 100vw - 250px );
+    white-space: nowrap;
+    z-index: 1;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
